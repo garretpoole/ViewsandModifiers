@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var useRedText = false
+    //views as properties
+    let motto1 = Text("Draco dormiens")
+    let motto2 = Text("nunquam titillandus")
+    //ViewBuilder wraps interior like body does
+    @ViewBuilder var spells: some View{
+        Text("Lumos")
+        Text("Obliviate")
+    }
     var body: some View {
-        //child modifier is priority over the parent modifier
         VStack{
-            Text("Gryffindor")
-                .font(.largeTitle)
-                .blur(radius: 0)
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
-                .blur(radius: 5)
+            motto1
+                .foregroundColor(.red)
+            motto2
+                .foregroundColor(.blue)
         }
-        //environment (parent) modifier applies to everything inside
-        .font(.title)
-        //certain modifiers are not environment, they are cumulaive
-        .blur(radius: 5)
+        
+        HStack{
+            spells
+        }
         
     }
 }
