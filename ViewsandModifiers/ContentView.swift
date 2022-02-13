@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        //modifiers order matters
+        //creates a struct with the color and then wraps frame
+        //therefore color may not fill frame based on order
+        Button("Hello World") {
+            print(type(of: self.body))
+        }
+        .frame(width: 200, height: 200)
+        .background(.red)
     }
 }
 
