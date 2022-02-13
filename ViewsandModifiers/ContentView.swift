@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    //cannot return a protocol View, must fill it to be some View
     var body: some View {
-        //modifiers order matters
-        //creates a struct with the color and then wraps frame
-        //therefore color may not fill frame based on order
-        Button("Hello World") {
-            print(type(of: self.body))
+        //VStack returns a form of a tuple view up to 10
+        //causes the 10 View limit
+        VStack{
+            Text("Hello")
+            Text("World")
+            Text("Goodbye")
+            Text("World")
         }
-        .frame(width: 200, height: 200)
-        .background(.red)
     }
 }
 
