@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    //cannot return a protocol View, must fill it to be some View
+    @State private var useRedText = false
+    
     var body: some View {
-        //VStack returns a form of a tuple view up to 10
-        //causes the 10 View limit
-        VStack{
-            Text("Hello")
-            Text("World")
-            Text("Goodbye")
-            Text("World")
+        //prefer ternary conditional operator ?
+        //two if statements makes swiftui do a lot more work
+        Button("Hello World") {
+            useRedText.toggle()
         }
+        .foregroundColor(useRedText ? .red : .blue)
+        
     }
 }
 
